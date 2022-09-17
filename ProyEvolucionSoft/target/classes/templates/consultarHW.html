@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Consultas</title>
+
+
+    <link th:href="@{/estilos.css}" rel="stylesheet">
+
+</head>
+<body>
+
+<form name="form2">
+    <input type="hidden" name="opcion2">
+
+    <a class="navbar-brand" th:href="@{/producto}">HOME</a>
+    <a th:href="@{/producto/consultaHW }"></a> <input type="button" style="color:#2E468F;font-weight: bold"
+                                                  value="Consulta HW" class="boton" />
+        <a th:href="@{/producto/listadoHW }"> <input type="button" style="color:#2E468F;font-weight: bold"
+                                                     value="Eliminar HW" class="boton" /></a>
+</form>
+
+<hr style="border-color:black;">
+
+<form name="form" th:action="@{/producto/search}" method="post" enctype="multipart/form-data">
+    <div class="contenedor">
+        <h1 style="color:black;font-size:18px;text-align:center;">Criterios de b&uacute;squeda: </h1>
+        <div class="form">
+            <label> Nombre: </label>
+            <br>
+            <input name="DESC_PROD" type="text">
+        </div>
+        <div class="form">
+            <label> Categoria: </label>
+            <br>
+
+            <select name="IDCATE" class="input_text">
+
+
+                <option th:each="varCat:${listaCategoria}"
+                        th:value="${varCat.id_cate}"
+                        th:text="${varCat.nombCat}">
+                </option>
+
+            </select>
+        </div>
+        <br>
+        <div class="form">
+            <label> Marca: </label>
+
+            <select name="IDMARCA" class="input_text">
+
+                <option th:each="var:${listaMarca}"
+                        th:value="${var.id_marca}"
+                        th:text="${var.nombMarca}">
+                </option>
+
+            </select>
+
+            <br>
+        </div>
+
+        <br>
+        <a  th:href="@{/producto/consultaHW}"><input type="submit" style="color:#2E468F;font-weight: bold" value="Buscar Por los 2 COMBOBOX" class="boton"/>
+
+
+    </div>
+
+    <br>
+    <table align="center" border="1">
+        <br>
+        <tr style="color:white;background-color:#2E468F;font-weight: 600">
+            <td class="tituloTabla">C&oacute;digo Cartera</td>
+            <td class="tituloTabla">Descripcion</td>
+            <td class="tituloTabla">Stock</td>
+            <td class="tituloTabla">CODCATEGORIA</td>
+            <td class="tituloTabla">CODMARCA</td>
+        </tr>
+
+        <tr  th:each="variable:${listaProductoBuscada}" class="FondoTabla">
+            <td th:text="${variable.id_prod}"></td>
+            <td th:text="${variable.descProd}"></td>
+            <td th:text="${variable.stock}"></td>
+            <td th:text="${variable.IDCATE}"></td>
+            <td th:text="${variable.IDMARCA}"></td>
+        </tr>
+
+
+
+    </table>
+
+</form>
+</body>
+</html>

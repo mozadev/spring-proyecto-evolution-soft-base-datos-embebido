@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>INICIO</title>
+    <link th:href="@{/estilos.css}" rel="stylesheet">
+
+</head>
+<body>
+
+<form name="form2">
+    <input type="hidden"   name="opcion2" >
+
+    <a class="navbar-brand" th:href="@{/producto}">HOME</a>
+    <a  th:href="@{/producto/consultaHW }"> <input type="button"  style="color:#2E468F;font-weight: bold" value="Consulta HW"  class="boton"  />
+    <a  th:href="@{/producto/listadoHW }">  <input type="button"  style="color:#2E468F;font-weight: bold" value="Eliminar HW"  class="boton" />
+</form>
+
+
+<hr style="border-color:black;">
+<p style="color:black;font-size:26px;font-family:Arial;">PORTAL DE</p>
+<p style="color:#FF2116;font-size:26px;font-family:Arial;">EVOLUTION SOFT</p>
+</body>
+</html>

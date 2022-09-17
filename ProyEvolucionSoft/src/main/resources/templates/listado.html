@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>JSP Page</title>
+    <link th:href="@{/estilos.css}" rel="stylesheet">
+    <link th:href="@{/estiloform_1.css}" rel="stylesheet">
+
+</head>
+<body>
+
+<form name="form2">
+    <input type="hidden" name="opcion2">
+    <a class="navbar-brand" th:href="@{/producto}">HOME</a>
+    <a th:href="@{/producto/consultaHW }"> <input type="button" style="color:#2E468F;font-weight: bold"
+                                                  value="Consulta HW" class="boton"/>
+        <a th:href="@{/producto/listadoHW }"> <input type="button" style="color:#2E468F;font-weight: bold"
+                                                     value="Eliminar HW" class="boton"/>
+</form>
+<hr style="border-color:black;">
+<form th:action="@{/producto/delete}" method="post" enctype="multipart/form-data">
+
+    <table cellpadding="5" cellspacing="5" border="1">
+
+        <br><br>
+        <tr>
+            <th>Check</th>
+            <th>HW</th>
+            <th>Stock</th>
+        </tr>
+        <tr style="text-decoration: none" th:each="var:${listaProductos}">
+            <td><input type="radio" th:value="${var.id_prod}" name="id"></td>
+            <td style="text-decoration: none" th:text="${var.descProd}"></td>
+            <td style="text-decoration: none" th:text="${var.stock}"></td>
+        </tr>
+        <tr align="center" >
+            <td><input type="submit" style="color:#2E468F;font-weight: bold" value="Deshabilitar" class="boton"
+            /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
